@@ -6,10 +6,9 @@ import os
 app = FastAPI()
 
 @app.get("/queryById")
-async def root():
+async def query_by_id(id: int):
     api_key = os.getenv('API_KEY')
-    movie_id = 100 # Example movie ID: Fight Club
-    movie_details = fetch_movie_details(movie_id, api_key)
+    movie_details = fetch_movie_details(id, api_key)
     if movie_details:
         return movie_details
     else:
