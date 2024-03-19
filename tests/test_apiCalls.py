@@ -2,7 +2,7 @@ import pytest
 import os
 from src.utils.apiCall import fetch_movie_details
 
-API_KEY = os.getenv("API_KEY")
+API_KEY = os.getenv("TMDB_API_KEY")
 
 def test_fetch_movie_details_return_type():
   mocked_movie_id = 100
