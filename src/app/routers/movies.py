@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from services.tmdb import *
+from services.chromadbClient import ChromaDbClient
 
 router = APIRouter()
 
@@ -23,6 +24,9 @@ async def fetch(movie_id: int):
 
 @router.get('/movies/search/keyword={keyword}', tags=["movies"])
 async def search(keyword: str):
-    return await search_movie_by_keyword(keyword)
+    data = await search_movie_by_keyword(keyword)
+    chromaDbClient = ChromaDbClient()
+    chromaDbClient.populateColletionWithDataFromTMDB("Test", data)
+    return data
 
 
