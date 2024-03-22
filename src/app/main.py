@@ -1,5 +1,5 @@
 from fastapi import FastAPI, HTTPException
-from utils.apiCall import *
+from services.apiCall import *
 import uvicorn
 import os
 

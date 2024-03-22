@@ -1,6 +1,6 @@
 import pytest
 import os
-from src.utils.apiCall import fetch_movie_details
+from src.app.services.apiCall import fetch_movie_details
 
 API_KEY = os.getenv("TMDB_API_KEY")
 
