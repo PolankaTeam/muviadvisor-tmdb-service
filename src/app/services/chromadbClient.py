@@ -35,8 +35,7 @@ class ChromaDbClient:
 
         try:
             self.client.get_collection(collectionName)
-        except ValueError as e:
-            print(e)
+        except Exception as e:
             self.client.create_collection(collectionName)
 
         collection = self.client.get_collection(collectionName)
