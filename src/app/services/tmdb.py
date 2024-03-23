@@ -1,8 +1,7 @@
 import httpx
 import os
 
-TMDB_API_KEY = '7e59b9c230ccf64f151e491af5554fcc'
-
+TMDB_API_KEY = os.getenv("TMDB_API_KEY")
     
 async def fetch_movies(movie_id: int):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}"
