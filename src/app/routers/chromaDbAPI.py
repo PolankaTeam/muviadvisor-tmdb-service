@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter
 from services.tmdb import *
 from services.chromadbClient import ChromaDbClient
 
@@ -8,5 +8,5 @@ router = APIRouter()
 async def search(keyword: str):
     chromaDbClient = ChromaDbClient()
     results = chromaDbClient.semanticSearchCollection(keyword,"Test", 10)
-    
+
     return results
