@@ -12,11 +12,11 @@ async def test():
 async def fetch(movie_id: int):
     return await fetch_movies(movie_id)
 
-@router.get('/movies/search/keyword={keyword}', tags=["movies"])
-async def search(keyword: str):
+@router.get('/movies/search/', tags=["movies"])
+async def search(keyword: str, collectionName: str):
     data = await search_movie_by_keyword(keyword)
     chromaDbClient = ChromaDbClient()
-    chromaDbClient.populateColletionWithDataFromTMDB("Test", data)
+    chromaDbClient.populateColletionWithDataFromTMDB(collectionName, data)
 
     return data
 
