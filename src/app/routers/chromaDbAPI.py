@@ -8,4 +8,5 @@ router = APIRouter()
 async def search(keyword: str):
     chromaDbClient = ChromaDbClient()
     results = chromaDbClient.semanticSearchCollection(keyword,"Test", 10)
+    
     return results

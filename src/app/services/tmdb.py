@@ -12,6 +12,7 @@ async def fetch_movies(movie_id: int):
     async with httpx.AsyncClient() as client:
         response = await client.get(url, params=params)
         response.raise_for_status()
+
         return response.json()
 
 async def search_movie_by_keyword(keyword: str):
@@ -25,10 +26,7 @@ async def search_movie_by_keyword(keyword: str):
         response = await client.get(url, params=params)
         response.raise_for_status()
         data = response.json()
-
         results = data.get("results", [])
-
-        # await add_movie_to_weaviate(results)
 
         return results
 

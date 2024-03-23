@@ -18,20 +18,20 @@ class ChromaDbClient:
         embeddings = []
         ids = []
 
-        for index, tmdbData in enumerate(tmdbData):
-            documents.append(tmdbData.get("overview", ""))
-            embedding = transformStringToVector(tmdbData.get("overview", "")).tolist()
+        for movie in tmdbData:
+            documents.append(movie.get("overview", ""))
+            embedding = transformStringToVector(movie.get("overview", "")).tolist()
             embeddings.append(embedding)
             metadatas.append({
-                "adult": str(tmdbData.get("adult", "")),
-                "original_language": tmdbData.get("original_language", ""),
-                "original_title": tmdbData.get("original_title", ""),
-                "popularity": str(tmdbData.get("popularity", "")),
-                "release_date": tmdbData.get("release_date", ""),
-                "title": tmdbData.get("title", ""),
-                "vote_average": str(tmdbData.get("Question", "")),
+                "adult": str(movie.get("adult", "")),
+                "original_language": movie.get("original_language", ""),
+                "original_title": movie.get("original_title", ""),
+                "popularity": str(movie.get("popularity", "")),
+                "release_date": movie.get("release_date", ""),
+                "title": movie.get("title", ""),
+                "vote_average": str(movie.get("Question", "")),
             })
-            ids.append(str(tmdbData.get("id", "")))
+            ids.append(str(movie.get("id", "")))
 
         try:
             self.client.get_collection(collectionName)

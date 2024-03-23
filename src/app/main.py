@@ -11,8 +11,7 @@ app.include_router(chromaDbAPI.router)
 
 @app.get("/")
 async def root():
-    return "Witamy w aplikacji Movie Advisor"
-
+    return "Welcome to Muviadvisor! :)"
 
     
 if __name__ == "__main__":
