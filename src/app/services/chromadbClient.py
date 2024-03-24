@@ -49,6 +49,7 @@ class ChromaDbClient:
 
         return "Data populated"
 
+
     def semanticSearchCollection(self, query: str, collectionName: str, numberOfResults: int):
         vectorizedQuery = transformStringToVector(query).tolist()
         collection = self.client.get_collection(collectionName)

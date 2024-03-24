@@ -4,9 +4,9 @@ from services.chromadbClient import ChromaDbClient
 
 router = APIRouter()
 
-@router.get('/chromadb/search/keyword={keyword}', tags=["movies"])
-async def search(keyword: str):
+@router.get('/api/chromadb/search/', tags=["movies"])
+async def search(keyword: str, collectionName: str):
     chromaDbClient = ChromaDbClient()
-    results = chromaDbClient.semanticSearchCollection(keyword,"Test", 10)
+    results = chromaDbClient.semanticSearchCollection(keyword, collectionName, 10)
 
     return results
